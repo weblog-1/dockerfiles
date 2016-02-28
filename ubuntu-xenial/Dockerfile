@@ -1,5 +1,4 @@
 FROM ubuntu:xenial
-
 RUN sed -i.bak -e "s%archive.ubuntu.com/ubuntu/%ftp.riken.jp/Linux/ubuntu/%g" /etc/apt/sources.list
 RUN apt-get update
 RUN apt-get -y install aptitude
@@ -13,9 +12,7 @@ RUN aptitude -y install git \
     vim \
     iproute2 \
     systemd
-
 EXPOSE 22
-
 RUN useradd -m -d /home/docker -u 1000 -s /bin/bash docker
 RUN mkdir /home/docker/.ssh
 RUN chmod 700 /home/docker/.ssh
@@ -30,5 +27,4 @@ RUN systemctl enable ssh
 RUN systemctl enable supervisor
 RUN locale-gen en_US.UTF-8
 RUN locale-gen ja_JP.UTF-8
-
 ENTRYPOINT ["/sbin/init", "3"]
