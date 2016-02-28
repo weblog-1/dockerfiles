@@ -1,6 +1,6 @@
 FROM ubuntu:xenial
 
-RUN sed -i.bak -e "s%archive.ubuntu.com/ubuntu/%ftp.jaist.ac.jp/pub/Linux/ubuntu/%g" /etc/apt/sources.list
+RUN sed -i.bak -e "s%archive.ubuntu.com/ubuntu/%ftp.riken.jp/Linux/ubuntu/%g" /etc/apt/sources.list
 RUN apt-get update
 RUN apt-get -y install aptitude
 RUN aptitude update
