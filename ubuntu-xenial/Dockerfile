@@ -28,5 +28,6 @@ RUN echo 'docker ALL=(ALL:ALL) NOPASSWD:ALL' >> /etc/sudoers
 RUN echo 'docker:docker' | chpasswd
 RUN systemctl enable ssh
 RUN systemctl enable supervisor
-
+RUN locale-gen en_US.UTF-8
+RUN locale-gen ja_JP.UTF-8
 ENTRYPOINT ["/sbin/init", "3"]
